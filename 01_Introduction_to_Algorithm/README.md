@@ -30,4 +30,4 @@ Print Luas
 
 Flowchart adalah sebuah bagan dengan simbol tertentu yang menggambarkan sebuah urutan dan hubungan antar proses secara mendetail, flowchart digunakan untuk merepresentasikan sebuah proses algoritma dalam menyelesaikan sebuah persoalan tertentu atau program tertentu. Contoh flowchart menghitung luas Trapesium :
 
-![Contoh Flowchart](screenshots/Flowchart_Area-Of-Trapezoid.jpg)
+![Contoh Flowchart](screenshots/03_Flowchart_Area_Of_Trapezoid.jpg)
