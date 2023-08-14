@@ -38,7 +38,7 @@
 
 ### 2. Conflict
 
-![Conflict](../screenshots/Conflict.jpeg)
+![Conflict](../screenshots/conflict.jpeg)
 
 ### 3. Code Review dan Bukti Resolve Conflict
 
