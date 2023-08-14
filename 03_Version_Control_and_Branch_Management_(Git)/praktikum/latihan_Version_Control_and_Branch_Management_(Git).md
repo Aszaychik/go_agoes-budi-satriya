@@ -19,3 +19,13 @@
 #### Commit
 
 ![Commits](../screenshots/commits.png)
+
+## Soal Prioritas 2
+
+### 1. Branch
+
+![Branch](../screenshots/branch.png)
+
+### 2. Pull Request
+
+![Pull Request](../screenshots/pull_request.jpeg)
