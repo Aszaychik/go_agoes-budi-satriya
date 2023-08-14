@@ -29,3 +29,17 @@
 ### 2. Pull Request
 
 ![Pull Request](../screenshots/pull_request.jpeg)
+
+## Soal Explorasi
+
+### 1. Gitflow
+
+![Gitflow](../screenshots/git_flow.jpeg)
+
+### 2. Conflict
+
+![Conflict](../screenshots/Conflict.jpeg)
+
+### 3. Code Review dan Bukti Resolve Conflict
+
+![Code Review](../screenshots/review_code_&_dan_bukti_resolve_conflict.png)
