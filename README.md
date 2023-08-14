@@ -14,6 +14,7 @@ Here is a list of assignments I've completed:
 
 - [Assignment 1: Introduction to Algorithm](/01_Introduction_to_Algorithm/README.md)
 - [Assignment 2: Basic Programming](/02_Basic_Programming/README.md)
+- [Assignment 2: Version Control and Branch Management (Git)](/03_Version_Control_and_Branch_Management_(Git)/README.md)
 - ...
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
