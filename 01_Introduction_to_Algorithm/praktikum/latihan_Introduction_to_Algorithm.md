@@ -120,4 +120,4 @@ Referensi: [Backend Developer Roadmap](https://roadmap.sh/backend)
 
 ### Flowchart Area of Trapezoid
 
-![Contoh Flowchart](screenshots/03_Flowchart_Area_Of_Trapezoid.jpg)
+![Contoh Flowchart](../screenshots/03_Flowchart_Area_Of_Trapezoid.jpg)
