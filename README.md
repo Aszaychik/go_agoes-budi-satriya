@@ -16,7 +16,6 @@ Here is a list of assignments I've completed:
 - [Assignment 2: Basic Programming](/02_Basic_Programming/README.md)
 - [Assignment 3: Version Control and Branch Management (Git)](03_Version_Control_and_Branch_Management_(Git)/README.md)
 - [Assignment 4: Time and Space Complexity](04_Time_and_Space_Complexity/README.md)
-- ...
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
 
