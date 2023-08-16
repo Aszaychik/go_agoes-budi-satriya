@@ -20,7 +20,7 @@ func FizzBuzz(n int) []string {
 
 
 func main() {
-	result := FizzBuzz(100)
+	var result []string = FizzBuzz(15)
 
 	fmt.Println(result)
 }

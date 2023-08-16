@@ -24,7 +24,7 @@ func main() {
 	fmt.Println("Masukkan nilai: ")
 	fmt.Scan(&nilai)
 
-	result := GradeCalculation(nilai)
+	var result string = GradeCalculation(nilai)
 
 	fmt.Println(result)
 }
