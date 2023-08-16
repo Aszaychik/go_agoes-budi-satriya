@@ -19,7 +19,7 @@ func main() {
 	var height float32
 	fmt.Scan(&height)
 
-	result := AreaOfTrapezoid(base1, base2, height)
+	var result float32 = AreaOfTrapezoid(base1, base2, height)
 
 	fmt.Println(result)
 }

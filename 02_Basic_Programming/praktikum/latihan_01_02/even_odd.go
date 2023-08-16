@@ -15,7 +15,7 @@ func main() {
 	fmt.Println("Input number : ")
 	fmt.Scan(&number)
 
-	result := EvenOrOdd(number)
+	var result string = EvenOrOdd(number)
 
 	fmt.Println(result)
 }

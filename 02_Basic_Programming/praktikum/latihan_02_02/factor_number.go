@@ -18,6 +18,6 @@ func main() {
 	fmt.Print("Input a number: ")
 	fmt.Scan(&number)
 
-	result := FactorNumber(number)
+	var result []int = FactorNumber(number)
 	fmt.Println(result)
 }
