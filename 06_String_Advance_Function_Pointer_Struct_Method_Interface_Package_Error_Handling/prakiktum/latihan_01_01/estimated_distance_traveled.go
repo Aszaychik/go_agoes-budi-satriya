@@ -22,7 +22,6 @@ func main() {
 		carType: "SUV",
 		fuelin:  10.5,
 	}
-
 	var estDistance float32 = car.EstimatedDistanceTraveled()
 
 	fmt.Printf("Car type: %s, Est. distance: %.2f", car.carType, estDistance)// menggunakan Sprintf untuk mengembalikan nilai string, %s untuk menyimpan string, %.2f untuk menyimpan float dengan hanya menampilkan 2 angka desimal

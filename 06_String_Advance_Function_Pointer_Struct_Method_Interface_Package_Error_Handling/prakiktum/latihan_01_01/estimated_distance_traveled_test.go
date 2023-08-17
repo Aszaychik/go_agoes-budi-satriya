@@ -25,7 +25,6 @@ func TestEstimatedDistanceTraveled(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			var result float32 = test.car.EstimatedDistanceTraveled()
-
 			require.Equal(t, test.expected, result)
 		})
 	}
