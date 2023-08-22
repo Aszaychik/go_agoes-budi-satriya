@@ -17,7 +17,8 @@ Here is a list of assignments I've completed:
 - [Assignment 3: Version Control and Branch Management (Git)](03_Version_Control_and_Branch_Management_(Git)/README.md)
 - [Assignment 4: Time and Space Complexity](04_Time_and_Space_Complexity/README.md)
 - [Assignment 5: Data Structure](05_Data_Structure/README.md)
-- [Assignment 6:  String, Advance Function, Pointer, Struct, Method, Interface, Package & Error Handling](06_String_Advance_Function_Pointer_Struct_Method_Interface_Package_Error_Handling/README.md)
+- [Assignment 6: String, Advance Function, Pointer, Struct, Method, Interface, Package & Error Handling](06_String_Advance_Function_Pointer_Struct_Method_Interface_Package_Error_Handling/README.md)
+- [Assignment 7: Recursive, Number Theory, Sorting & Searching](07_Recursive_Number_Theory_Sorting_Searching/README.md)
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
 
