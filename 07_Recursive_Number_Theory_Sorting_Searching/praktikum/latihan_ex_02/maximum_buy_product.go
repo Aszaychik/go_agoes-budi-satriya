@@ -17,6 +17,8 @@ func MaximumBuyProduct(money int, productPrice []int) int {
 		if money >= price { // Jika money lebih besar dari price maka bisa membeli barang
 			money -= price
 			result ++ // Sebuah counter untuk menghitung jumlah barang yang dibeli
+		} else {
+			break
 		}
 
 	}
