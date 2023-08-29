@@ -11,8 +11,8 @@ func fibonacci(number int) int {
 		return number
 	}
 
-	if index, found := fibonacciCache[number]; found {
-		return index
+	if value, found := fibonacciCache[number]; found {
+		return value
 	}
 
 	fibonacciCache[number] = fibonacci(number-1) + fibonacci(number-2)
