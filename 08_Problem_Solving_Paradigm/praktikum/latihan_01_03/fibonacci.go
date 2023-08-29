@@ -2,22 +2,22 @@ package main
 
 import "fmt"
 
+var fibonacciCache = map[int]int{}
+
 
 func fibonacci(number int) int {
 	if number <= 1 {
+		fibonacciCache[number] = number
 		return number
 	}
 
-	var a int = 0
-	var b int = 1
-	
-	for i := 2; i <= number; i++ {
-		var c = a + b
-		a = b
-		b = c
+	if index, found := fibonacciCache[number]; found {
+		return index
 	}
 
-	return b
+	fibonacciCache[number] = fibonacci(number-1) + fibonacci(number-2)
+
+	return fibonacci(number-1) + fibonacci(number-2)
 }
 
 func main() {
