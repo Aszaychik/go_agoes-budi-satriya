@@ -6,11 +6,6 @@ import (
 	"net/http"
 	"sync"
 )
-
-type ProductAPI interface {
-	GetAllProducts() (Products, error)
-}
-
 type Product struct {
 	Title    string  `json:"title"`
 	Price    float64 `json:"price"`
