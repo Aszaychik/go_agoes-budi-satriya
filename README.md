@@ -22,6 +22,7 @@ Here is a list of assignments I've completed:
 - [Assignment 8: Problem Solving Paradigm](08_Problem_Solving_Paradigm/README.md)
 - [Assignment 9: Concurrent Programing](09_Concurrent_Programing/README.md)
 - [Assignment 10: Clean Code](10_Clean_Code/README.md)
+- [Assignment 11: Database Schema, DDL, DML](11_Database_Schema_DDL_DML/README.md)
 
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
