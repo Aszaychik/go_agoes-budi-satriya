@@ -1,0 +1,8 @@
+PING google.com(se-in-f101.1e100.net (2404:6800:4003:c11::65)) 56 data bytes
+64 bytes from se-in-f101.1e100.net (2404:6800:4003:c11::65): icmp_seq=1 ttl=58 time=102 ms
+64 bytes from se-in-f101.1e100.net (2404:6800:4003:c11::65): icmp_seq=2 ttl=58 time=124 ms
+64 bytes from se-in-f101.1e100.net (2404:6800:4003:c11::65): icmp_seq=3 ttl=58 time=33.1 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 33.102/86.394/123.949/38.721 ms
