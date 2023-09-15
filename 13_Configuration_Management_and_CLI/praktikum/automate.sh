@@ -20,7 +20,7 @@ echo "https://www.facebook.com/$2" > "$folder_name/about_me/personal/facebook.tx
 echo "https://www.linkedin.com/in/$3" > "$folder_name/about_me/professional/linkedin.txt"
 
 # Mengisi file list_of_my_friends.txt dengan URL pastebin
-curl "https://pastebin.com/raw/ZnH9qdBs" > "$folder_name/my_friends/list_of_my_friends.txt"
+curl "https://gist.githubusercontent.com/tegarimansyah/e91f335753ab2c7fb12815779677e914/raw/94864388379fecee450fde26e3e73bfb2bcda194/list%2520of%2520my%2520friends.txt" > "$folder_name/my_friends/list_of_my_friends.txt"
 
 # Mengisi file about_this_laptop.txt dengan nama user dan informasi uname -a
 echo "My Username: $(whoami)" > "$folder_name/my_system_info/about_this_laptop.txt"
