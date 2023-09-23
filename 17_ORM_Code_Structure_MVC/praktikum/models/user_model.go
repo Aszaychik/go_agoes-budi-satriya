@@ -15,7 +15,7 @@ type User struct {
 	Name    string `gorm:"type:varchar(255)" json:"name"`
 	Email      string `gorm:"type:varchar(255);uniqueIndex" json:"email"`
 	Password   string	`gorm:"type:varchar(24);" json:"password"`
-	// Barangs []Barang `gorm:"foreignKey:Pemilik;references:Id"`
+	Blogs []Blog `gorm:"foreignKey:user_id;references:id"`
 }
 
 type UsersModel struct {
@@ -73,8 +73,9 @@ func (um *UsersModel) Update(updatedData User) *User {
 }
 
 func (um *UsersModel) Delete(id string) {
-	deletedUser := User{}
-	deletedUser.Id = id
-	err := um.db.Delete(&deletedUser).Error
-	helpers.LogIfError("Model : Delete error, ", err)
+  user := User{}
+  user.Id = id
+	
+  err := um.db.Delete(&user).Error
+  helpers.LogIfError("Model : Delete error, ", err)
 }
