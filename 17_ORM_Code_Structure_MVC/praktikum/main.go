@@ -27,14 +27,21 @@ func main() {
 	bookModel := models.BooksModel{}
 	bookModel.Init(db)
 
+	blogModel := models.BlogsModel{}
+	blogModel.Init(db)
+
 	userController := controllers.UserController{}
 	userController.InitUserController(userModel)
 
 	bookController := controllers.BookController{}
 	bookController.InitBookController(bookModel)
 
+	blogController := controllers.BlogController{}
+	blogController.InitBlogController(blogModel)
+
 	routers.UserRoutes(e, userController)
 	routers.BookRoutes(e, bookController)
+	routers.BlogRoutes(e, blogController)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
