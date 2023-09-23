@@ -28,7 +28,7 @@ func (bc *BookController) GetBook() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		bookId := c.Param("id")
 		book := bc.model.FindById(bookId)
-		if book == nil {
+		if book.Id == "" {
 			return c.JSON(http.StatusNotFound, helpers.WebResponse(http.StatusNotFound, "Data not found", nil))
 		}
 

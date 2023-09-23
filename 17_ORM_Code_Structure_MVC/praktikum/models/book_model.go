@@ -25,9 +25,9 @@ func (bm *BooksModel) Init(db *gorm.DB) {
 	bm.db = db
 }
 
-func (u *Book) GenerateBookID() {
-	if u.Id == "" {
-		u.Id = uuid.NewString()
+func (b *Book) GenerateBookID() {
+	if b.Id == "" {
+		b.Id = uuid.NewString()
 		return
 	}
 	fmt.Println("ID already exist")
@@ -72,8 +72,9 @@ func (bm *BooksModel) Update(updatedData Book) *Book {
 }
 
 func (bm *BooksModel) Delete(id string) {
-	deletedBook := Book{}
-	deletedBook.Id = id
-	err := bm.db.Delete(&deletedBook).Error
-	helpers.LogIfError("Model : Delete error, ", err)
+  book := Book{}
+  book.Id = id
+	
+  err := bm.db.Delete(&book).Error
+  helpers.LogIfError("Model : Delete error, ", err)
 }

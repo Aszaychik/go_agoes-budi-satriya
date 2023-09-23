@@ -28,7 +28,7 @@ func (uc *UserController) GetUser() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		userId := c.Param("id")
 		user := uc.model.FindById(userId)
-		if user == nil {
+		if user.Id == "" {
 			return c.JSON(http.StatusNotFound, helpers.WebResponse(http.StatusNotFound, "Data not found", nil))
 		}
 
