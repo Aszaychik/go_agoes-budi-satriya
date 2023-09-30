@@ -30,6 +30,7 @@ Here is a list of assignments I've completed:
 - [Assignment 16: Intro Echo Golang](16_Intro_Echo_Golang/README.md)
 - [Assignment 17: ORM & Code Structure (MVC)](17_ORM_Code_Structure_MVC/README.md)
 - [Assignment 18: Middleware](18_Middleware/README.md)
+- [Assignment 19: Unit Testing](19_Unit_Testing/README.md)
 
 
 
