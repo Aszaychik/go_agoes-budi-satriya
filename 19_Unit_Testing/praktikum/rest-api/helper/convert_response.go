@@ -7,6 +7,7 @@ import (
 
 func UserDomainToUserLoginResponse(user *domain.User) web.UserLoginResponse {
 	return web.UserLoginResponse{
+		Name: user.Name,
 		Email: user.Email,
 	}
 }

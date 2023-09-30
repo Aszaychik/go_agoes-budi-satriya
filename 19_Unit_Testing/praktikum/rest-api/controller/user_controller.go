@@ -56,21 +56,28 @@ func (c *UserControllerImpl) LoginUserController(ctx echo.Context) error {
 	if err != nil {
 		return helper.StatusBadRequest(ctx, err)
 	}
-
+	
 	response, err := c.UserService.LoginUser(ctx, userLoginRequest)
 	if err != nil {
 		if strings.Contains(err.Error(), "Validation failed") {
 			return helper.StatusBadRequest(ctx, err)
 		}
-
+		
 		if strings.Contains(err.Error(), "Invalid email or password") {
 			return helper.StatusBadRequest(ctx, err)
 		}
-
+		
 		return helper.StatusInternalServerError(ctx, err)
 	}
 
 	userLoginResponse := helper.UserDomainToUserLoginResponse(response)
+
+	token, err := helper.GenerateToken(&userLoginResponse, response.ID)
+	if err != nil {
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	userLoginResponse.Token = token
 
 	return helper.StatusOK(ctx, "Success to login user", userLoginResponse)
 }
