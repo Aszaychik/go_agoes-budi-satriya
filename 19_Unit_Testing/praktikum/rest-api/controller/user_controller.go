@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"strconv"
 	"strings"
 	"unit_testing/helper"
 	"unit_testing/model/web"
@@ -10,8 +11,9 @@ import (
 )
 
 type UserController interface {
-	CreateUserController(ctx echo.Context ) error
+	RegisterUserController(ctx echo.Context ) error
 	LoginUserController(ctx echo.Context ) error
+	GetUserController(ctx echo.Context) error
 }
 
 type UserControllerImpl struct {
@@ -22,7 +24,7 @@ func NewUserController(userService service.UserService) UserController {
 	return &UserControllerImpl{UserService: userService}
 }
 
-func(c *UserControllerImpl) CreateUserController(ctx echo.Context) error {
+func(c *UserControllerImpl) RegisterUserController(ctx echo.Context) error {
 	userCreateRequest := web.UserCreateRequest{}
 	err := ctx.Bind(&userCreateRequest) 
 	if err != nil {
@@ -68,4 +70,23 @@ func (c *UserControllerImpl) LoginUserController(ctx echo.Context) error {
 	UserLoginResponse := helper.UserDomainToUserLoginResponse(response)
 
 	return helper.StatusOK(ctx, "Success to login user", UserLoginResponse)
+}
+
+func (c *UserControllerImpl) GetUserController(ctx echo.Context) error {
+	userId := ctx.Param("id")
+	userIdInt, err := strconv.Atoi(userId)
+	if err != nil {
+		return helper.StatusInternalServerError(ctx, err)
+	}
+	
+	response, err := c.UserService.FindById(ctx, userIdInt)
+	if err != nil {
+		if strings.Contains(err.Error(), "User not found") {
+			return helper.StatusNotFound(ctx, err)
+		}
+
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	return helper.StatusOK(ctx, "Success to get user", response)
 }

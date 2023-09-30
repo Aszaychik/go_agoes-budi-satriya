@@ -14,6 +14,7 @@ import (
 type UserService interface {
 	CreateUser(ctx echo.Context, request web.UserCreateRequest) (*domain.User, error)
 	LoginUser(ctx echo.Context, request web.UserLoginRequest) (*domain.User, error)
+	FindById(ctx echo.Context, id int) (*domain.User, error)
 }
 
 type UserServiceImpl struct {
@@ -74,6 +75,16 @@ func (service *UserServiceImpl) LoginUser(ctx echo.Context, request web.UserLogi
 	err = helper.ComparePassword(existingUser.Password, user.Password)
 	if err != nil {
 		return nil, fmt.Errorf("Invalid email or password")
+	}
+
+	return existingUser, nil
+}
+
+func (service *UserServiceImpl) FindById(ctx echo.Context, id int) (*domain.User, error) {
+	// Check if the user exists
+	existingUser, err := service.UserRepository.FindById(id)
+	if err != nil {
+		return nil, fmt.Errorf("User not found")
 	}
 
 	return existingUser, nil

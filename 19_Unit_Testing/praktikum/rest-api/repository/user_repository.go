@@ -10,7 +10,7 @@ type UserRepository interface {
 	Create(user *domain.User) error
 	// Update(user *domain.User) error
 	// Delete(user *domain.User)
-	// FindById(id int) error
+	FindById(id int) (*domain.User, error)
 	FindByEmail(email string) (*domain.User, error)
 	// FindAll() []domain.User
 	// FindExistsByEmail(email string) bool
@@ -37,7 +37,16 @@ func (repository *UserRepositoryImpl) Create(user *domain.User) error {
 
 // func (repository *UserRepositoryImpl) Delete(user *domain.User) {}
 
-// func (repository *UserRepositoryImpl) FindById(id int) error {}
+func (repository *UserRepositoryImpl) FindById(id int) (*domain.User, error) {
+	user := domain.User{}
+
+	result := repository.DB.First(&user, id)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	return &user, nil
+}
 
 func (repository *UserRepositoryImpl) FindByEmail(email string) (*domain.User, error) {
 	user := domain.User{}

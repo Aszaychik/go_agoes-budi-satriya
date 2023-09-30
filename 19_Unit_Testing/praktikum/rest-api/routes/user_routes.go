@@ -9,6 +9,7 @@ import (
 func NewUserRoutes(e *echo.Echo, userController controller.UserController) {
 	usersGroup := e.Group("users")
 
-	usersGroup.POST("", userController.CreateUserController)
+	usersGroup.POST("", userController.RegisterUserController)
 	usersGroup.POST("/login", userController.LoginUserController)
+	usersGroup.GET("/:id", userController.GetUserController)
 }
