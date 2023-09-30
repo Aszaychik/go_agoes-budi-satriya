@@ -19,3 +19,11 @@ func UserLoginRequestToUserDomain(request web.UserLoginRequest) *domain.User {
 		Password: request.Password,
 	}
 }
+
+func UserUpdateRequestToUserDomain(request web.UserUpdateRequest) *domain.User {
+	return &domain.User{
+		Name: request.Name,
+		Email: request.Email,
+		Password: request.Password,
+	}
+}
