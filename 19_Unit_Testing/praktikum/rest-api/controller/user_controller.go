@@ -13,7 +13,9 @@ import (
 type UserController interface {
 	RegisterUserController(ctx echo.Context ) error
 	LoginUserController(ctx echo.Context ) error
+	UpdateUserController(ctx echo.Context) error
 	GetUserController(ctx echo.Context) error
+	GetUsersController(ctx echo.Context) error
 }
 
 type UserControllerImpl struct {
@@ -67,9 +69,38 @@ func (c *UserControllerImpl) LoginUserController(ctx echo.Context) error {
 		return helper.StatusInternalServerError(ctx, err)
 	}
 
-	UserLoginResponse := helper.UserDomainToUserLoginResponse(response)
+	userLoginResponse := helper.UserDomainToUserLoginResponse(response)
 
-	return helper.StatusOK(ctx, "Success to login user", UserLoginResponse)
+	return helper.StatusOK(ctx, "Success to login user", userLoginResponse)
+}
+
+func (c *UserControllerImpl) UpdateUserController(ctx echo.Context) error {
+	userId := ctx.Param("id")
+	userIdInt, err := strconv.Atoi(userId)
+	if err != nil {
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	userUpdateRequest := web.UserUpdateRequest{}
+	err = ctx.Bind(&userUpdateRequest)
+	if err != nil {
+		return helper.StatusBadRequest(ctx, err)
+	}
+
+	response, err := c.UserService.UpdateUser(ctx, userUpdateRequest, userIdInt)
+	if err != nil {
+		if strings.Contains(err.Error(), "Validation failed") {
+			return helper.StatusBadRequest(ctx, err)
+		}
+
+		if strings.Contains(err.Error(), "User not found") {
+			return helper.StatusNotFound(ctx, err)
+		}
+
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	return helper.StatusOK(ctx, "Success to update user", response)
 }
 
 func (c *UserControllerImpl) GetUserController(ctx echo.Context) error {
@@ -89,4 +120,17 @@ func (c *UserControllerImpl) GetUserController(ctx echo.Context) error {
 	}
 
 	return helper.StatusOK(ctx, "Success to get user", response)
+}
+
+func (c *UserControllerImpl) GetUsersController(ctx echo.Context) error {
+	response, err := c.UserService.FindAll(ctx)
+	if err != nil {
+		if strings.Contains(err.Error(), "Users not found") {
+			return helper.StatusNotFound(ctx, err)
+		}
+
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	return helper.StatusOK(ctx, "Success to get users", response)
 }

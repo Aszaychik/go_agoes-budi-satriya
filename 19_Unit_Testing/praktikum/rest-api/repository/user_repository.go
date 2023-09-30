@@ -7,13 +7,12 @@ import (
 )
 
 type UserRepository interface {
-	Create(user *domain.User) error
-	// Update(user *domain.User) error
+	Create(user *domain.User) (*domain.User, error)
+	Update(user *domain.User, id int) (*domain.User, error)
 	// Delete(user *domain.User)
 	FindById(id int) (*domain.User, error)
 	FindByEmail(email string) (*domain.User, error)
-	// FindAll() []domain.User
-	// FindExistsByEmail(email string) bool
+	FindAll() ([]domain.User, error)
 }
 
 type UserRepositoryImpl struct{
@@ -24,16 +23,23 @@ func NewUserRepository(db *gorm.DB) UserRepository {
 	return &UserRepositoryImpl{DB: db}
 }
 
-func (repository *UserRepositoryImpl) Create(user *domain.User) error {
+func (repository *UserRepositoryImpl) Create(user *domain.User) (*domain.User, error) {
 	result := repository.DB.Create(&user)
 	if result.Error != nil {
-		return result.Error
+		return nil, result.Error
 	}
 
-	return nil
+	return user, nil
 }
 
-// func (repository *UserRepositoryImpl) Update(user *domain.User) error {}
+func (repository *UserRepositoryImpl) Update(user *domain.User, id int) (*domain.User, error) {
+	result := repository.DB.Table("users").Where("id = ?", id).Updates(domain.User{Name: user.Name, Email: user.Email, Password: user.Password})
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	return user, nil
+}
 
 // func (repository *UserRepositoryImpl) Delete(user *domain.User) {}
 
@@ -59,4 +65,13 @@ func (repository *UserRepositoryImpl) FindByEmail(email string) (*domain.User, e
 	return &user, nil
 }
 
-// func (repository *UserRepositoryImpl) FindAll() []domain.User{}
+func (repository *UserRepositoryImpl) FindAll() ([]domain.User, error) {
+	user := []domain.User{}
+
+	result := repository.DB.Find(&user)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	return user, nil
+}

@@ -14,7 +14,9 @@ import (
 type UserService interface {
 	CreateUser(ctx echo.Context, request web.UserCreateRequest) (*domain.User, error)
 	LoginUser(ctx echo.Context, request web.UserLoginRequest) (*domain.User, error)
+	UpdateUser(ctx echo.Context, request web.UserUpdateRequest, id int) (*domain.User, error)
 	FindById(ctx echo.Context, id int) (*domain.User, error)
+	FindAll(ctx echo.Context) ([]domain.User, error)
 }
 
 type UserServiceImpl struct {
@@ -47,12 +49,12 @@ func (service *UserServiceImpl) CreateUser(ctx echo.Context, request web.UserCre
 	// Convert password to hash
 	user.Password = helper.HashPassword(user.Password)
 
-	err = service.UserRepository.Create(user)
+	result, err := service.UserRepository.Create(user)
 	if err != nil {
 		return nil, fmt.Errorf("Error when creating user: %s", err.Error())
 	}
 
-	return user, nil
+	return result, nil
 }
 
 func (service *UserServiceImpl) LoginUser(ctx echo.Context, request web.UserLoginRequest) (*domain.User, error) {
@@ -62,22 +64,47 @@ func (service *UserServiceImpl) LoginUser(ctx echo.Context, request web.UserLogi
 		return nil, helper.ValidationError(ctx, err)
 	}
 
-	// Check if the email already exists
-	existingUser, _ := service.UserRepository.FindByEmail(request.Email)
-	if existingUser == nil {
+	// Check if the user exists
+	existingUser, err := service.UserRepository.FindByEmail(request.Email)
+	if err != nil  {
 		return nil, fmt.Errorf("Invalid email or password")
 	}
 	
 	// Convert request to domain
 	user := helper.UserLoginRequestToUserDomain(request)
 
-	// Convert request to domain
+	// Compare password
 	err = helper.ComparePassword(existingUser.Password, user.Password)
 	if err != nil {
 		return nil, fmt.Errorf("Invalid email or password")
 	}
 
 	return existingUser, nil
+}
+
+func (service *UserServiceImpl) UpdateUser(ctx echo.Context, request web.UserUpdateRequest, id int) (*domain.User, error) {
+	// Check if the request is valid
+	err := service.Validate.Struct(request)
+	if err != nil {
+		return nil, helper.ValidationError(ctx, err)
+	}
+
+	// Check if the user exists
+	existingUser, _ := service.UserRepository.FindById(id)
+	if existingUser == nil {
+		return nil, fmt.Errorf("User not found")
+	}
+
+	// Convert request to domain
+	user := helper.UserUpdateRequestToUserDomain(request)
+	user.Password = helper.HashPassword(user.Password)
+
+	result, err := service.UserRepository.Update(user, id)
+	if err != nil {
+		return nil, fmt.Errorf("Error when updating user: %s", err.Error())
+	}
+
+	return result, nil
 }
 
 func (service *UserServiceImpl) FindById(ctx echo.Context, id int) (*domain.User, error) {
@@ -88,4 +115,13 @@ func (service *UserServiceImpl) FindById(ctx echo.Context, id int) (*domain.User
 	}
 
 	return existingUser, nil
+}
+
+func (service *UserServiceImpl) FindAll(ctx echo.Context) ([]domain.User, error) {
+	users, err := service.UserRepository.FindAll()
+	if err != nil {
+		return nil, fmt.Errorf("Users not found")
+	}
+
+	return users, nil
 }

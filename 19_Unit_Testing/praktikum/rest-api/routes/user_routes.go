@@ -11,5 +11,7 @@ func NewUserRoutes(e *echo.Echo, userController controller.UserController) {
 
 	usersGroup.POST("", userController.RegisterUserController)
 	usersGroup.POST("/login", userController.LoginUserController)
+	usersGroup.PUT("/:id", userController.UpdateUserController)
 	usersGroup.GET("/:id", userController.GetUserController)
+	usersGroup.GET("", userController.GetUsersController)
 }
