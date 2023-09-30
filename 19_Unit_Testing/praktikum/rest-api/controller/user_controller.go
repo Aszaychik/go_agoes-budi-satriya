@@ -16,6 +16,7 @@ type UserController interface {
 	UpdateUserController(ctx echo.Context) error
 	GetUserController(ctx echo.Context) error
 	GetUsersController(ctx echo.Context) error
+	DeleteUserController(ctx echo.Context) error
 }
 
 type UserControllerImpl struct {
@@ -133,4 +134,23 @@ func (c *UserControllerImpl) GetUsersController(ctx echo.Context) error {
 	}
 
 	return helper.StatusOK(ctx, "Success to get users", response)
+}
+
+func (c *UserControllerImpl) DeleteUserController(ctx echo.Context) error {
+	userId := ctx.Param("id")
+	userIdInt, err := strconv.Atoi(userId)
+	if err != nil {
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	err = c.UserService.DeleteUser(ctx, userIdInt)
+	if err != nil {
+		if strings.Contains(err.Error(), "User not found") {
+			return helper.StatusNotFound(ctx, err)
+		}
+
+		return helper.StatusInternalServerError(ctx, err)
+	}
+
+	return helper.StatusOK(ctx, "Success to delete user", nil)
 }

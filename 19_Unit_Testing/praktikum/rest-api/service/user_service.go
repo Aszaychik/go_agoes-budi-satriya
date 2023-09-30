@@ -17,6 +17,7 @@ type UserService interface {
 	UpdateUser(ctx echo.Context, request web.UserUpdateRequest, id int) (*domain.User, error)
 	FindById(ctx echo.Context, id int) (*domain.User, error)
 	FindAll(ctx echo.Context) ([]domain.User, error)
+	DeleteUser(ctx echo.Context, id int) error
 }
 
 type UserServiceImpl struct {
@@ -109,8 +110,8 @@ func (service *UserServiceImpl) UpdateUser(ctx echo.Context, request web.UserUpd
 
 func (service *UserServiceImpl) FindById(ctx echo.Context, id int) (*domain.User, error) {
 	// Check if the user exists
-	existingUser, err := service.UserRepository.FindById(id)
-	if err != nil {
+	existingUser, _ := service.UserRepository.FindById(id)
+	if existingUser == nil {
 		return nil, fmt.Errorf("User not found")
 	}
 
@@ -124,4 +125,19 @@ func (service *UserServiceImpl) FindAll(ctx echo.Context) ([]domain.User, error)
 	}
 
 	return users, nil
+}
+
+func (service *UserServiceImpl) DeleteUser(ctx echo.Context, id int) error {
+	// Check if the user exists
+	existingUser, _ := service.UserRepository.FindById(id)
+	if existingUser == nil {
+		return fmt.Errorf("User not found")
+	}
+
+	err := service.UserRepository.Delete(id)
+	if err != nil {
+		return fmt.Errorf("Error when deleting user: %s", err)
+	}
+
+	return nil
 }

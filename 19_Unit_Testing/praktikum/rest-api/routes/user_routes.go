@@ -14,4 +14,5 @@ func NewUserRoutes(e *echo.Echo, userController controller.UserController) {
 	usersGroup.PUT("/:id", userController.UpdateUserController)
 	usersGroup.GET("/:id", userController.GetUserController)
 	usersGroup.GET("", userController.GetUsersController)
+	usersGroup.DELETE("/:id", userController.DeleteUserController)
 }

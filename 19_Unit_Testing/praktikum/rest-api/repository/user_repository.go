@@ -9,10 +9,10 @@ import (
 type UserRepository interface {
 	Create(user *domain.User) (*domain.User, error)
 	Update(user *domain.User, id int) (*domain.User, error)
-	// Delete(user *domain.User)
 	FindById(id int) (*domain.User, error)
 	FindByEmail(email string) (*domain.User, error)
 	FindAll() ([]domain.User, error)
+	Delete(id int) error
 }
 
 type UserRepositoryImpl struct{
@@ -40,8 +40,6 @@ func (repository *UserRepositoryImpl) Update(user *domain.User, id int) (*domain
 
 	return user, nil
 }
-
-// func (repository *UserRepositoryImpl) Delete(user *domain.User) {}
 
 func (repository *UserRepositoryImpl) FindById(id int) (*domain.User, error) {
 	user := domain.User{}
@@ -74,4 +72,13 @@ func (repository *UserRepositoryImpl) FindAll() ([]domain.User, error) {
 	}
 
 	return user, nil
+}
+
+func (repository *UserRepositoryImpl) Delete(id int) error {
+	result := repository.DB.Table("users").Where("id = ?", id).Unscoped().Delete(id)
+	if result.Error != nil {
+		return result.Error
+	}
+
+	return nil
 }
