@@ -33,7 +33,8 @@ func main() {
 	e.Use(middleware.LoggerWithConfig(
 		middleware.LoggerConfig{
 			Format: "method=${method}, uri=${uri}, status=${status}, time=${time_rfc3339}\n",
-		}))
+		},
+	))
 	
 	routes.NewUserRoutes(e, userController)
 
