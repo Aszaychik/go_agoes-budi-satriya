@@ -33,13 +33,22 @@ func (UserController *UserControllerImpl) CeateUserController() echo.HandlerFunc
 		response, err := UserController.UserService.CreateUser(userCreateRequest)
 		if err != nil {
 			if strings.Contains("Email already exist", err.Error()) {
-				helper.StatusBadRequest(ctx, err)
+				return helper.StatusBadRequest(ctx, err)
 			}
 
 			return helper.StatusInternalServerError(ctx, err)
 		}
 
-		return helper.StatusCreated(ctx, "Success Create User", response)
+		userCreateResponse := helper.UserDomainToUserCreateResponse(response)
+
+		token, err := helper.GenerateToken(&userCreateRequest, response.ID)
+		if err != nil {
+			return helper.StatusInternalServerError(ctx, err)
+		}
+
+		userCreateResponse.Token = token
+
+		return helper.StatusCreated(ctx, "Success Create User", userCreateResponse)
 	}
 }
 
