@@ -31,7 +31,7 @@ Here is a list of assignments I've completed:
 - [Assignment 17: ORM & Code Structure (MVC)](17_ORM_Code_Structure_MVC/README.md)
 - [Assignment 18: Middleware](18_Middleware/README.md)
 - [Assignment 19: Unit Testing](19_Unit_Testing/README.md)
-
+- [Assignment 20: Clean and Hexagonal Architecture](20_Clean_and_Hexagonal_Architecture/README.md)
 
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
