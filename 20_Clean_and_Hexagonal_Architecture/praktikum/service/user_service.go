@@ -2,6 +2,7 @@ package service
 
 import (
 	"fmt"
+	"simple_clean_code/helper"
 	"simple_clean_code/model/domain"
 	"simple_clean_code/model/web"
 	"simple_clean_code/repository"
@@ -13,38 +14,37 @@ type UserService interface {
 }
 
 type UserServiceImpl struct {
-	Repository repository.UserRepository
+	UserRepository repository.UserRepository
 }
 
-func NewUserService(repository repository.UserRepository) UserService {
-	return &UserServiceImpl{Repository: repository}
+func NewUserService(userRepository repository.UserRepository) UserService {
+	return &UserServiceImpl{UserRepository: userRepository}
 }
 
-func (service UserServiceImpl) CreateUser(request web.UserCreateRequest) (*domain.User, error) {
-	existingUser, err := service.Repository.FindByEmail(request.Email)
+func (service *UserServiceImpl) CreateUser(request web.UserCreateRequest) (*domain.User, error) {
+
+	// Check if the email already exists
+	existingUser, _ := service.UserRepository.FindByEmail(request.Email)
 	if existingUser != nil {
-		return nil, fmt.Errorf("Email already exist")
+		return nil, fmt.Errorf("Email already exists")
 	}
 
+	// Convert request to domain
+	user := helper.UserCreateRequestToUserDomain(request)
+
+	// Convert password to hash
+	user.Password = helper.HashPassword(user.Password)
+
+	result, err := service.UserRepository.Save(user)
 	if err != nil {
-		return nil, fmt.Errorf("failed to find user: %w", err)
+		return nil, fmt.Errorf("Error when creating user: %s", err.Error())
 	}
 
-	user := domain.User{
-		Email: request.Email,
-		Password: request.Password,
-	}
-
-	userResult, err := service.Repository.Save(&user)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create user: %w", err)
-	}
-
-	return userResult, nil
+	return result, nil
 }
 
-func (service UserServiceImpl) GetAllUser() ([]domain.User, error) {
-	users, err := service.Repository.FindAll()
+func (service *UserServiceImpl) GetAllUser() ([]domain.User, error) {
+	users, err := service.UserRepository.FindAll()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get all users: %w", err)
 	}

@@ -42,9 +42,11 @@ func (repository *UserRepositoryImpl) FindAll() ([]domain.User, error) {
 
 func (repository *UserRepositoryImpl) FindByEmail(email string) (*domain.User, error) {
 	user := domain.User{}
-	result := repository.DB.Where("email = ?", email).Find(&user)
+
+	result := repository.DB.Where("email = ?", email).First(&user)
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return &user, result.Error
+
+	return &user, nil
 }
