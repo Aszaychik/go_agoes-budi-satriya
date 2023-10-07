@@ -33,6 +33,7 @@ Here is a list of assignments I've completed:
 - [Assignment 19: Unit Testing](19_Unit_Testing/README.md)
 - [Assignment 20: Clean and Hexagonal Architecture](20_Clean_and_Hexagonal_Architecture/README.md)
 - [Assignment 21: Docker](21_Docker/README.md)
+- [Assignment 22: Compute Service](22_Compute_Service/README.md)
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
 
