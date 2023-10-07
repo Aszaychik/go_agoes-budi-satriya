@@ -160,4 +160,4 @@ Google Cloud SQL adalah solusi yang kuat untuk mengelola basis data SQL di lingk
 
 ## Link Deployment Restful API untuk tugas ini
 
-[Alta-Aimar](https://alta-aimar.uc.r.appspot.com/)
+[go_simple_clean_rest_api](http://18.141.231.208:8080)
