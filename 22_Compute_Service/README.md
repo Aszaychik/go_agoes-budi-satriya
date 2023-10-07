@@ -1,108 +1,108 @@
-# Introduction to Deployment
+# Pengantar Deployment
 
-## System & Software Deployment
+## Sistem & Penyebaran Perangkat Lunak
 
-Deployment is the process of distributing applications/products developed by developers, often transitioning them from a temporary state to a permanent one. Deployment can occur through various methods depending on the type of application, with web and API applications deployed to servers and mobile applications to the Play Store/App Store.
+Deployment adalah proses mendistribusikan aplikasi/produk yang dikembangkan oleh para pengembang, seringkali untuk mengubahnya dari status sementara menjadi permanen. Penyebaran dapat dilakukan melalui berbagai metode tergantung pada jenis aplikasinya, dengan aplikasi web & API dideploy ke server sementara aplikasi mobile ke Play Store/App Store.
 
 ## AWS (Amazon Web Services)
 
-Amazon Web Services (AWS) is a leading cloud computing service provider globally, offered by Amazon. AWS provides infrastructure and various cloud services to help businesses and individuals efficiently manage their applications, data, and computing resources. To provide a detailed, clear, and engaging explanation of AWS, let's discuss some key aspects:
+Amazon Web Services (AWS) adalah penyedia layanan komputasi awan terkemuka secara global, yang disediakan oleh Amazon. AWS menyediakan infrastruktur dan berbagai layanan awan untuk membantu bisnis dan individu mengelola aplikasi, data, dan sumber daya komputasi mereka secara efisien. Untuk memberikan penjelasan yang rinci, jelas, dan menarik tentang AWS, mari kita bahas beberapa aspek kunci:
 
-1. **Global Infrastructure:**
-   AWS has data centers worldwide, enabling customers to run applications and store data in various locations. This allows fast and reliable access to AWS services from almost anywhere in the world.
+1. **Infrastruktur Global:**
+   AWS memiliki pusat data di seluruh dunia, memungkinkan pelanggan menjalankan aplikasi dan menyimpan data mereka di berbagai lokasi. Ini memungkinkan akses cepat dan andal ke layanan AWS dari hampir mana saja di dunia.
 
-2. **Compute:**
-   Amazon EC2 provides a variety of virtual machine types that can be configured as needed. Users can run virtual machines with different specifications, ranging from small instances to high-performance instances, based on the demands of their applications. AWS also offers services like Amazon Elastic Kubernetes Service (EKS) for managing containers and facilitating container-based development.
+2. **Komputasi:**
+   Amazon EC2 menyediakan berbagai jenis mesin virtual yang dapat dikonfigurasi sesuai kebutuhan. Pengguna dapat menjalankan mesin virtual dengan spesifikasi yang berbeda, mulai dari mesin kecil hingga mesin dengan daya komputasi tinggi, sesuai dengan tuntutan aplikasi mereka.
 
-3. **Storage and Databases:**
-   AWS offers storage services, including Amazon S3 for object storage, Amazon RDS for SQL databases, and Amazon DynamoDB for NoSQL databases. This allows secure and highly scalable storage and management of data.
+3. **Penyimpanan dan Basis Data:**
+   AWS menyediakan layanan penyimpanan, termasuk Amazon S3 untuk penyimpanan objek, Amazon RDS untuk basis data SQL, dan Amazon DynamoDB untuk basis data NoSQL. Ini memungkinkan penyimpanan data yang aman dan skalabilitas tinggi.
 
-4. **Networking and Security:**
-   AWS has a robust global network and provides advanced security tools to protect data and applications. Services like Amazon Virtual Private Cloud (VPC) allow users to isolate their resources in a secure network.
+4. **Jaringan dan Keamanan:**
+   AWS memiliki jaringan global yang kuat dan menyediakan alat-alat keamanan canggih untuk melindungi data dan aplikasi. Layanan seperti Amazon Virtual Private Cloud (VPC) memungkinkan isolasi sumber daya dalam jaringan yang aman.
 
-5. **Artificial Intelligence (AI) and Machine Learning (ML):**
-   AWS provides tools and infrastructure for the development and deployment of machine learning and artificial intelligence models. Users can leverage TensorFlow (an open-source machine learning library) or AutoML for easy creation and training of AI models.
+5. **Kecerdasan Buatan (AI) dan Pembelajaran Mesin (ML):**
+   AWS menyediakan alat dan infrastruktur untuk pengembangan dan implementasi model pembelajaran mesin dan kecerdasan buatan. Pengguna dapat memanfaatkan TensorFlow (perpustakaan pembelajaran mesin open-source) atau AutoML untuk membuat dan melatih model AI dengan mudah.
 
-6. **Industry-Specific Services:**
-   AWS offers industry-specific solutions such as the Healthcare API for healthcare companies, Retail Solutions for retailers, and more. This allows companies to integrate customized cloud solutions according to their needs.
+6. **Layanan Khusus Industri:**
+   AWS juga menawarkan solusi industri khusus, seperti Healthcare API untuk perusahaan kesehatan, Retail Solutions untuk peritel, dan lainnya. Ini memungkinkan perusahaan mengintegrasikan solusi awan yang disesuaikan dengan kebutuhan mereka.
 
-7. **Service Management:**
-   The AWS Management Console provides a user-friendly interface for managing AWS resources and services. Additionally, AWS offers a command-line interface (CLI) for automation and scripting.
+7. **Manajemen Layanan:**
+   AWS Management Console menyediakan antarmuka pengguna yang mudah digunakan untuk mengelola sumber daya dan layanan AWS. Selain itu, AWS juga menawarkan antarmuka baris perintah (Command Line Interface) untuk otomatisasi dan skrip.
 
-8. **Competitive Pricing:**
-   AWS competes aggressively in terms of pricing with other cloud providers. They offer a flexible billing model, including pay-as-you-go, allowing users to pay only for the resources they actually use.
+8. **Harga yang Kompetitif:**
+   AWS bersaing secara agresif dalam hal harga dengan penyedia awan lainnya. Mereka menawarkan model penagihan yang fleksibel, termasuk penagihan berdasarkan penggunaan (pay-as-you-go), sehingga pengguna hanya membayar untuk sumber daya yang benar-benar digunakan.
 
-9. **Partner Ecosystem:**
-   AWS has a large partner ecosystem, including various cloud management service providers, independent software vendors, and consultants. This helps customers integrate and manage their cloud solutions more effectively.
+9. **Ekosistem Mitra:**
+   AWS memiliki ekosistem mitra yang luas, termasuk berbagai penyedia layanan manajemen awan, penyedia perangkat lunak independen, dan konsultan. Ini membantu pelanggan mengintegrasikan dan mengelola solusi awan mereka lebih baik.
 
-Amazon EC2 and RDS provide flexibility and full control for developers to run their applications in the cloud environment. With features like automation, scalability, and strong integration with other AWS services, EC2 and RDS are popular choices among developers.
+Amazon EC2 dan RDS menyediakan fleksibilitas dan kontrol penuh bagi pengembang untuk menjalankan aplikasi mereka di lingkungan awan. Dengan fitur-fitur seperti otomatisasi, skalabilitas, dan integrasi yang kuat dengan layanan AWS lainnya, EC2 dan RDS menjadi pilihan populer di kalangan pengembang.
 
 ## Amazon EC2 (Elastic Compute Cloud)
 
-Amazon EC2 (Elastic Compute Cloud) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Let's explore some key aspects of Amazon EC2:
+Amazon EC2 (Elastic Compute Cloud) adalah layanan web yang menyediakan kapasitas komputasi yang dapat disesuaikan di awan. Ini dirancang untuk membuat komputasi awan skala web menjadi lebih mudah bagi pengembang. Mari jelajahi beberapa aspek kunci dari Amazon EC2:
 
-1. **Virtual Servers (Instances):**
-   EC2 allows users to create and run virtual servers, known as instances, in the cloud. Users have full control over the instances, including the choice of operating system, instance type, and security settings.
+1. **Server Virtual (Instances):**
+   EC2 memungkinkan pengguna membuat dan menjalankan server virtual, yang dikenal sebagai instances, di awan. Pengguna memiliki kontrol penuh atas instances, termasuk pilihan sistem operasi, tipe instance, dan pengaturan keamanan.
 
-2. **Instance Configuration:**
-   Users can configure EC2 instances according to their application needs. They can choose the number of CPUs, amount of memory, and instance type that suits them.
+2. **Konfigurasi Instance:**
+   Pengguna dapat mengkonfigurasi instance EC2 sesuai kebutuhan aplikasi mereka. Mereka dapat memilih jumlah CPU, jumlah memori, dan tipe instance yang sesuai.
 
-3. **Infrastructure Automation:**
-   Amazon EC2 enables infrastructure automation through the use of Amazon Machine Images (AMI) to quickly and efficiently set up instances.
+3. **Otomatisasi Infrastruktur:**
+   Amazon EC2 memungkinkan otomatisasi infrastruktur melalui penggunaan Amazon Machine Images (AMI) untuk dengan cepat dan efisien menyiapkan instances.
 
-4. **Automatic Scalability:**
-   EC2 provides automatic horizontal scaling through Auto Scaling, allowing automatic adjustment of instance capacity based on workload.
+4. **Skalabilitas Otomatis:**
+   EC2 menyediakan skalabilitas horizontal otomatis melalui Auto Scaling, memungkinkan penyesuaian otomatis kapasitas instance berdasarkan beban kerja.
 
-5. **Security:**
-   Users can manage instance security using EC2 security groups, including setting firewall rules to control inbound and outbound traffic.
+5. **Keamanan:**
+   Pengguna dapat mengelola keamanan instance menggunakan grup keamanan EC2, termasuk menetapkan aturan firewall untuk mengontrol lalu lintas masuk dan keluar.
 
-6. **Application Version Management:**
-   Users can create Amazon Machine Images (AMI) containing their configuration and applications, facilitating efficient version management.
+6. **Manajemen Versi Aplikasi:**
+   Pengguna dapat membuat Amazon Machine Images (AMI) yang berisi konfigurasi dan aplikasi mereka, memfasilitasi manajemen versi yang efisien.
 
-7. **Integration with Other AWS Services:**
-   EC2 can easily integrate with other AWS services, such as Amazon S3 for object storage and Amazon RDS for relational databases.
+7. **Integrasi dengan Layanan AWS Lainnya:**
+   EC2 dapat dengan mudah diintegrasikan dengan layanan AWS lainnya, seperti Amazon S3 untuk penyimpanan objek dan Amazon RDS untuk basis data relasional.
 
-8. **Monitoring and Logging:**
-   AWS provides monitoring tools, including Amazon CloudWatch, to track EC2 instance performance and analyze logs for troubleshooting.
+8. **Pemantauan dan Logging:**
+   AWS menyediakan alat pemantauan, termasuk Amazon CloudWatch, untuk melacak kinerja instance EC2 dan menganalisis log untuk pemecahan masalah.
 
-9. **Usage-Based Billing:**
-   EC2 follows a pay-as-you-go billing model, where users only pay for the compute resources they use.
+9. **Penagihan Berbasis Penggunaan:**
+   EC2 mengikuti model penagihan pay-as-you-go, di mana pengguna hanya membayar untuk sumber daya komputasi yang mereka gunakan.
 
-Amazon EC2 provides flexibility and full control to developers to run their applications in the cloud. With features like automation, scalability, and strong integration with other AWS services, EC2 is a popular choice among developers.
+Amazon EC2 menyediakan fleksibilitas dan kontrol penuh kepada pengembang untuk menjalankan aplikasi mereka di awan. Dengan fitur-fitur seperti otomatisasi, skalabilitas, dan integrasi yang kuat dengan layanan AWS lainnya, EC2 menjadi pilihan populer di kalangan pengembang.
 
 ## Amazon RDS (Relational Database Service)
 
-Amazon RDS (Relational Database Service) is a fully managed relational database service provided by AWS. This service simplifies the operation and maintenance of SQL databases. Some key aspects of Amazon RDS are:
+Amazon RDS (Relational Database Service) adalah layanan basis data relasional yang dikelola sepenuhnya oleh AWS. Layanan ini menyederhanakan operasi dan pemeliharaan basis data SQL. Beberapa aspek kunci dari Amazon RDS adalah:
 
-1. **Support for Popular SQL Databases:**
-   Amazon RDS supports several popular SQL database systems, including MySQL, PostgreSQL, and SQL Server.
+1. **Dukungan untuk Basis Data SQL Populer:**
+   Amazon RDS mendukung beberapa sistem basis data SQL populer, termasuk MySQL, PostgreSQL, dan SQL Server.
 
-2. **Infrastructure Automation:**
-   AWS manages all aspects of the infrastructure, including server management, software updates, and data backups, automatically.
+2. **Otomatisasi Infrastruktur:**
+   AWS mengelola semua aspek infrastruktur secara otomatis, termasuk manajemen server, pembaruan perangkat lunak, dan pencadangan data.
 
-3. **Scalability:**
-   Amazon RDS allows users to easily adjust CPU, memory, and database storage capacity based on their needs.
+3. **Skalabilitas:**
+   Amazon RDS memungkinkan pengguna dengan mudah menyesuaikan kapasitas CPU, memori, dan penyimpanan basis data berdasarkan kebutuhan mereka.
 
-4. **Security:**
-   AWS pays special attention to data security in Amazon RDS. This includes encryption of data in transit and at rest, firewall, strong authentication settings, and security monitoring.
+4. **Keamanan:**
+   AWS memberikan perhatian khusus pada keamanan data di Amazon RDS. Ini termasuk enkripsi data saat berpindah dan saat istirahat, firewall, pengaturan otentikasi yang kuat, dan pemantauan keamanan.
 
-5. **Disaster Recovery:**
-   Amazon RDS automatically performs regular data backups, allowing users to restore a database to a specific point in time in case of failure or disaster.
+5. **Pemulihan Bencana:**
+   Amazon RDS secara otomatis melakukan pencadangan data secara teratur, memungkinkan pengguna mengembalikan basis data ke titik waktu tertentu jika terjadi kegagalan atau bencana.
 
-6. **Global Data Availability:**
-   Users can host Amazon RDS databases in various AWS zones and regions, ensuring a fast application experience worldwide.
+6. **Ketersediaan Data Global:**
+   Pengguna dapat meng-host basis data Amazon RDS di berbagai zona dan wilayah AWS, memastikan pengalaman aplikasi yang cepat di seluruh dunia.
 
-7. **Integration with Other AWS Tools:**
-   RDS can easily integrate with other AWS services, such as Amazon EC2, Amazon S3, and AWS Lambda, to build comprehensive solutions in the cloud.
+7. **Integrasi dengan Alat AWS Lainnya:**
+   RDS dapat dengan mudah diintegrasikan dengan layanan AWS lainnya, seperti Amazon EC2, Amazon S3, dan AWS Lambda, untuk membangun solusi komprehensif di awan.
 
-8. **Management via Web Interface and Command Line:**
-   Users can manage Amazon RDS databases through an easy-to-use web interface or via the command line using AWS Command Line Interface (CLI).
+8. **Manajemen Melalui Antarmuka Web dan Baris Perintah:**
+   Pengguna dapat mengelola basis data Amazon RDS melalui antarmuka web yang mudah digunakan atau melalui baris perintah menggunakan AWS Command Line Interface (CLI).
 
-9. **Usage-Based Billing:**
-   Amazon RDS follows a pay-as-you-go billing model, where users only pay for the database resources they use.
+9. **Penagihan Berbasis Penggunaan:**
+   Amazon RDS mengikuti model penagihan pay-as-you-go, di mana pengguna hanya membayar untuk sumber daya basis data yang mereka gunakan.
 
-Amazon RDS is a powerful solution for managing SQL databases in the cloud. It eliminates many administrative burdens associated with databases, allowing developers and businesses to focus on application development without worrying about complex database infrastructure. With strong security and scalability features, Cloud SQL helps keep your database secure and responsive.
+Amazon RDS adalah solusi kuat untuk mengelola basis data SQL di awan. Ini menghilangkan banyak beban administrasi yang terkait dengan basis data, memungkinkan pengembang dan bisnis fokus pada pengembangan aplikasi tanpa khawatir tentang infrastruktur basis data yang rumit. Dengan fitur keamanan dan skalabilitas yang kuat, Amazon RDS membantu menjaga basis data Anda aman dan responsif.
 
-## Link to Deployment of Restful API for this Task
+## Tautan untuk Deployment Restful API untuk Tugas ini
 
 http://18.141.231.208:8080
