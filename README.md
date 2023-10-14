@@ -35,6 +35,7 @@ Here is a list of assignments I've completed:
 - [Assignment 21: Docker](21_Docker/README.md)
 - [Assignment 22: Compute Service](22_Compute_Service/README.md)
 - [Assignment 23: CI/CD](23_CI_CD/README.md)
+- [Assignment 24: Introduction to Artificial Intelligence](24_Introduction_to_Artificial_Intelligence/README.md)
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
 
