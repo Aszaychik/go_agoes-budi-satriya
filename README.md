@@ -37,6 +37,7 @@ Here is a list of assignments I've completed:
 - [Assignment 23: CI/CD](23_CI_CD/README.md)
 - [Assignment 24: Introduction to Artificial Intelligence](24_Introduction_to_Artificial_Intelligence/README.md)
 - [Assignment 25: AI Algorithm](25_AI_Algorithm/README.md)
+- [Assignment 26: AI in Go](26_AI_in_Go/README.md)
 
 Feel free to explore each folder to see the code and solutions I've developed for each assignment. If you have any questions or feedback, please don't hesitate to contact me.
 
